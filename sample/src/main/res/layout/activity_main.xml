@@ -12,7 +12,7 @@
         android:id="@+id/textView" />
 
     <Button
-        android:layout_width="wrap_cont ent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="添加播放任务"
         android:id="@+id/addTask"

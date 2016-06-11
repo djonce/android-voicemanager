@@ -8,14 +8,11 @@ import android.view.View;
 public class MainActivity extends Activity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private VoiceManager voiceManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        voiceManager = new VoiceManager();
-        voiceManager.startTask();
     }
 
     public void addTask(View view) {
@@ -24,8 +21,8 @@ public class MainActivity extends Activity {
          */
         VoiceTask task = new VoiceTask();
         task.setId(0);
-        task.setUrl("http://test.19ba.cn/cyrh.mp3");
-        voiceManager.submit(task);
+        task.setUrl("http://test.19ba.cn/brave.mp3");
+        VoiceManager.getInstance().submit(task);
 
     }
     VoiceTask task;
@@ -52,18 +49,18 @@ public class MainActivity extends Activity {
                 Log.e(TAG, task.toString());
             }
         });
-        voiceManager.executeNow(task);
+        VoiceManager.getInstance().executeNow(task);
     }
 
     public void stopPlayTask(View view) {
-        voiceManager.cancelCurrentTask(task);
+        VoiceManager.getInstance().cancelCurrentTask(task);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(voiceManager != null){
-            voiceManager.clearAndRelease();
-        }
+
+        VoiceManager.getInstance().clearAndRelease();
+
     }
 }

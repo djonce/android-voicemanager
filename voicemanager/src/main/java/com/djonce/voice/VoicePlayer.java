@@ -37,7 +37,6 @@ public class VoicePlayer {
             }
 
             if(mediaPlayer != null && isPlaying){
-//                mediaPlayer.stop();
                 mediaPlayer.reset();
             }
 
@@ -77,9 +76,16 @@ public class VoicePlayer {
             });
 
             mediaPlayer.setDataSource(url);
-//            mediaPlayer.setDataSource("http://test.19ba.cn/cyrh.mp3");
-            mediaPlayer.prepare();
-            mediaPlayer.start();
+            mediaPlayer.prepareAsync();
+//            mediaPlayer.prepare();
+//            mediaPlayer.start();
+
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mediaPlayer.start();
+                }
+            });
 
         } catch (Exception e) {
             Log.d(TAG, "播放语音异常 :"+ e.toString());
@@ -103,63 +109,6 @@ public class VoicePlayer {
     public boolean isPlaying() {
         return isPlaying;
     }
-
-    public static long getAmrDuration(File file) throws IOException {
-        long duration = -1;
-        int[] packedSize = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
-        RandomAccessFile randomAccessFile = null;
-        try {
-            randomAccessFile = new RandomAccessFile(file, "rw");
-            long length = file.length();//文件的长度
-            int pos = 6;//设置初始位置
-            int frameCount = 0;//初始帧数
-            int packedPos = -1;
-            /////////////////////////////////////////////////////
-            byte[] datas = new byte[1];//初始数据值
-            while (pos <= length) {
-                randomAccessFile.seek(pos);
-                if (randomAccessFile.read(datas, 0, 1) != 1) {
-                    duration = length > 0 ? ((length - 6) / 650) : 0;
-                    break;
-                }
-                packedPos = (datas[0] >> 3) & 0x0F;
-                pos += packedSize[packedPos] + 1;
-                frameCount++;
-            }
-            /////////////////////////////////////////////////////
-            duration += frameCount * 20;//帧数*20
-        } finally {
-            if (randomAccessFile != null) {
-                randomAccessFile.close();
-            }
-        }
-        return duration;
-    }
-
-    public static long getAmrDuration(byte[] voice) {
-        long duration = -1;
-        int[] packedSize = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
-        long length = voice.length;//文件的长度
-        int pos = 6;//设置初始位置
-        int frameCount = 0;//初始帧数
-        int packedPos = -1;
-        /////////////////////////////////////////////////////
-        byte[] datas = new byte[1];//初始数据值
-        while (pos <= length) {
-            if (pos == length) {
-                duration = length > 0 ? ((length - 6) / 650) : 0;
-                break;
-            }
-            datas[0] = voice[pos];
-            packedPos = (datas[0] >> 3) & 0x0F;
-            pos += packedSize[packedPos] + 1;
-            frameCount++;
-        }
-        /////////////////////////////////////////////////////
-        duration += frameCount * 20;//帧数*20
-        return duration;
-    }
-
 
     static Ringtone rt;
 
