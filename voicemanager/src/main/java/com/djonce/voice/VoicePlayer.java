@@ -77,8 +77,6 @@ public class VoicePlayer {
 
             mediaPlayer.setDataSource(url);
             mediaPlayer.prepareAsync();
-//            mediaPlayer.prepare();
-//            mediaPlayer.start();
 
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
