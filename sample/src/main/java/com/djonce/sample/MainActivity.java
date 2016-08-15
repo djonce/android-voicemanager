@@ -1,9 +1,15 @@
-package com.djonce.voice;
+package com.djonce.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import com.djonce.voicemanager.VoiceError;
+import com.djonce.voicemanager.VoiceListener;
+import com.djonce.voicemanager.VoiceManager;
+import com.djonce.voicemanager.VoiceTask;
+
 
 public class MainActivity extends Activity {
 

@@ -1,4 +1,4 @@
-package com.djonce.voice;
+package com.djonce.voicemanager;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

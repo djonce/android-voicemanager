@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.djonce.voice" >
+    package="com.djonce.sample" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme" >
         <activity
-            android:name="com.djonce.voice.MainActivity"
+            android:name="com.djonce.sample.MainActivity"
              >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

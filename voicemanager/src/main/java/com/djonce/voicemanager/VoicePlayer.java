@@ -1,4 +1,4 @@
-package com.djonce.voice;
+package com.djonce.voicemanager;
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -7,10 +7,6 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.util.Log;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
 
 /**
  * 播放语音
