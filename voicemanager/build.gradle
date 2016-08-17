@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
     compileSdkVersion 23
@@ -21,4 +22,13 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+publish {
+    userOrg = 'djonce'//bintray.com用户名
+    groupId = 'teach.wangjie'//jcenter上的路径
+    artifactId = 'voicemanager'//项目名称
+    publishVersion = '1.0.1'//版本号
+    desc = 'Easy voice play for android'//描述，不重要
+    website = 'https://github.com/djonce/android-voicemanager'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }

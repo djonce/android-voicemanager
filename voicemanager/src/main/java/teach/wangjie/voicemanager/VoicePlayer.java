@@ -1,4 +1,4 @@
-package com.djonce.voicemanager;
+package teach.wangjie.voicemanager;
 
 import android.content.Context;
 import android.media.AudioManager;

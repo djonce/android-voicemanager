@@ -1,14 +1,16 @@
-package com.djonce.sample;
+package teach.wangjie.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.djonce.voicemanager.VoiceError;
-import com.djonce.voicemanager.VoiceListener;
-import com.djonce.voicemanager.VoiceManager;
-import com.djonce.voicemanager.VoiceTask;
+import com.djonce.sample.R;
+
+import teach.wangjie.voicemanager.VoiceError;
+import teach.wangjie.voicemanager.VoiceListener;
+import teach.wangjie.voicemanager.VoiceManager;
+import teach.wangjie.voicemanager.VoiceTask;
 
 
 public class MainActivity extends Activity {
