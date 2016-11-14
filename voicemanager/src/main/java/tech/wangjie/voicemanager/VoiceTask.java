@@ -1,8 +1,8 @@
-package teach.wangjie.voicemanager;
+package tech.wangjie.voicemanager;
 
 /**
  *
- * Created by wangj on 2015/12/18 0018.
+ * Created by wangj on 2015/12/18
  */
 public class VoiceTask {
 

@@ -1,4 +1,4 @@
-package teach.wangjie.voicemanager;
+package tech.wangjie.voicemanager;
 
 import android.content.Context;
 import android.media.AudioManager;

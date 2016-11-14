@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme" >
         <activity
-            android:name="teach.wangjie.sample.MainActivity"
+            android:name="tech.wangjie.sample.MainActivity"
              >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
